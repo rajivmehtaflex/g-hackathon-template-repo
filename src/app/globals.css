@@ -1,0 +1,44 @@
+:root {
+  --background-start: #0f0f17;
+  --background-end: #181a2d;
+  --foreground: #eef2ff;
+  --card: #151a2f;
+  --card-soft: #1f2540;
+  --accent: #2f67ff;
+  --accent-soft: #92b0ff;
+  --muted: #a2a9bf;
+  --border: #30385f;
+  --success: #46dc89;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--foreground);
+  background: radial-gradient(circle at top left, #1e2452 0%, var(--background-start) 38%, var(--background-end) 100%);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

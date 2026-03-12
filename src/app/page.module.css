@@ -1,0 +1,139 @@
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  gap: 24px;
+  min-height: 100vh;
+  padding: 56px clamp(16px, 3vw, 48px);
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero {
+  animation: floatIn 450ms ease-out;
+}
+
+.card {
+  animation: floatIn 450ms ease-out 120ms both;
+  background: linear-gradient(140deg, var(--card), var(--card-soft));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.badge {
+  display: inline-block;
+  color: var(--accent-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  max-width: 20ch;
+  font-size: clamp(28px, 4.2vw, 44px);
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+.hero p {
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.status {
+  color: #ffc17a;
+  min-height: 20px;
+  margin-top: 8px;
+}
+
+.subtle {
+  color: color-mix(in oklab, var(--muted) 80%, white 20%) !important;
+  font-size: 0.98rem;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.primaryButton,
+.secondaryButton,
+.submitButton,
+.ghostButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  transition: all 140ms ease;
+}
+
+.primaryButton {
+  background: var(--accent);
+  color: white;
+  border-color: rgba(47, 103, 255, 0.4);
+}
+
+.secondaryButton,
+.ghostButton {
+  background: transparent;
+  color: var(--foreground);
+  border-color: var(--border);
+}
+
+.card h2 {
+  margin-bottom: 14px;
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .badge {
+    margin-top: 8px;
+  }
+
+  .ctaRow {
+    justify-content: center;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primaryButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(47, 103, 255, 0.25);
+  }
+
+  .secondaryButton:hover,
+  .ghostButton:hover {
+    border-color: var(--accent-soft);
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
