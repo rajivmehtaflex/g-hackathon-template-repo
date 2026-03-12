@@ -36,6 +36,26 @@
   font-weight: 600;
 }
 
+.signInLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  min-height: 38px;
+  padding: 0 14px;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.demoBanner {
+  background: rgba(47, 103, 255, 0.1);
+  border: 1px solid rgba(146, 176, 255, 0.3);
+  border-radius: 14px;
+  padding: 14px 16px;
+  color: var(--accent-soft);
+}
+
 .grid {
   display: grid;
   gap: 16px;
