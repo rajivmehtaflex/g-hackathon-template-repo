@@ -13,9 +13,9 @@ function getSupabaseConfig() {
   return { url, anonKey };
 }
 
-export function createServerSupabaseClient() {
+export async function createServerSupabaseClient() {
   const config = getSupabaseConfig();
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
 
   return createServerClient<Database>(config.url, config.anonKey, {
     cookies: {

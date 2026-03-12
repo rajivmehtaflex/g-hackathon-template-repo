@@ -8,8 +8,16 @@
 ## Local workflow
 - Copy `.env.example` to `.env.local` and fill the Supabase URL/keys.
 - Start Supabase containers when developing: `npm run supabase:start` and stop them with `npm run supabase:stop` after work.
-- Run `npm run dev` to launch Next.js plus Supabase-backed pages, signing in with the OTP form to seed your workspace.
+- Run `npm run dev` to launch the Next.js server locally, then open `http://localhost:3000` to view the current landing page served from `src/app/page.tsx`.
+- If you only want to preview the homepage, Supabase containers are not required; they are only needed for auth, migrations, and local database work.
+- When the server starts, Next.js prints the active local URL and any alternate port if `3000` is busy.
 - Use `supabase studio` (http://localhost:54322) or `npx supabase db dump --linked` for schema inspection while iterating.
+
+## One-command public preview
+- Make the launcher executable once: `chmod +x ./start_server.sh`
+- Run `./start_server.sh` from the repo root.
+- The script checks for `cloudflared`, installs it if needed, starts Next.js on port `3000`, creates an anonymous quick tunnel, and prints a public `trycloudflare.com` URL.
+- Keep the script running while sharing the page; press `Ctrl+C` to stop both the local server and the tunnel.
 
 ## Supabase production prep
 - Keep `supabase/migrations/*.sql` and `supabase/seed.sql` in sync; run `npx supabase db push` after editing SQL assets.

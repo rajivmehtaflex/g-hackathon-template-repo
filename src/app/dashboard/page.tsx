@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import styles from "./dashboard.module.css";
+import styles from "./page.module.css";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 type ProjectRow = {
@@ -22,7 +22,7 @@ type ActivityRow = {
 };
 
 export default async function DashboardPage() {
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
