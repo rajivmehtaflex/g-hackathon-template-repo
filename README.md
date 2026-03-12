@@ -5,6 +5,12 @@
 - Ensure migrations are applied and sample data seeded locally: `npm run db:reset` (Docker required).
 - Update `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY` in your production env and Vercel project secrets.
 
+## Local workflow
+- Copy `.env.example` to `.env.local` and fill the Supabase URL/keys.
+- Start Supabase containers when developing: `npm run supabase:start` and stop them with `npm run supabase:stop` after work.
+- Run `npm run dev` to launch Next.js plus Supabase-backed pages, signing in with the OTP form to seed your workspace.
+- Use `supabase studio` (http://localhost:54322) or `npx supabase db dump --linked` for schema inspection while iterating.
+
 ## Supabase production prep
 - Keep `supabase/migrations/*.sql` and `supabase/seed.sql` in sync; run `npx supabase db push` after editing SQL assets.
 - Use `npx supabase gen types typescript --local > src/types/database.ts` when schema changes to keep client helpers typed.
